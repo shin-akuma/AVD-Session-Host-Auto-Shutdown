@@ -200,7 +200,7 @@ foreach ($SessionHost in $Sessionhosts) {
     if($VMStatus -eq 'PowerState/running'){
         Write-Log "$SessionHostName is running, checking for active sessions"
         #vm is running and has an active session, no action required
-        if ($Sessionhost.Session -eq '1'  -and $Sessionhost.Status -eq 'Available'){
+        if ($Sessionhost.Session -ge '1'  -and $Sessionhost.Status -eq 'Available'){
             Write-Log "$SessionHostName is running and has an active session, not taking action."
         }
         #VM is running but has no active session, time to deallocate VM
