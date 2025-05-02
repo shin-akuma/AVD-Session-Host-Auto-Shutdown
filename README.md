@@ -1,7 +1,7 @@
 # AVD Session Host Auto Shutdown
 
 ## Description
-The script can be used to shut down Azure Virtual Desktop Session Hosts which have no active sessions. 
+The module can be used to shut down Azure Virtual Desktop Session Hosts which have no active sessions. 
 
 ## Prerequisites
 Required Powershell modules:
@@ -12,13 +12,25 @@ Required Powershell modules:
 - 'Az.DesktopVirtualization'
 
 ## Usage
-The script does the following:
+The module does the following:
 * Checks if start on Connect is enabled. Link to how to configure this https://docs.microsoft.com/en-us/azure/virtual-desktop/start-virtual-machine-connect
 * Collects all the Session Hosts in the host pool
 * If the Session Host is running it checks if there is an active session, if there are no active sessions the Session Host will be Deallocated
 
+### Importing the Module
+To import the module, use the following command:
+```powershell
+Import-Module -Name AVD-Session-Host-Auto-Shutdown
+```
+
+### Calling the Functions
+After importing the module, you can call the functions provided by the module. For example:
+```powershell
+Write-Log -Message "This is a log message"
+```
+
 ### Parameters
-- **AADTenantId**: The tenant ID of the tenant you want to deploy this script in
+- **AADTenantId**: The tenant ID of the tenant you want to deploy this module in
 - **SubscriptionId**: Subscription ID of where the Session Hosts are hosted
 - **AVDrg**: The resource group where the Azure Virtual Desktop object (e.g. the host pool) is located
 - **SessionHostrg**: The resource group where the Virtual Machines that are connected to the Host Pool are located
